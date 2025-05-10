@@ -5,4 +5,6 @@
 
 UWyrmAbilitySystemComponent::UWyrmAbilitySystemComponent()
 {
+	//This is a test
+
 }
