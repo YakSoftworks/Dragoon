@@ -3,6 +3,9 @@
 
 #include "Player/HeroComponent.h"
 
+#include "Character/WyrmCharacter.h"
+#include "Equipment/WyrmEquipmentComponent.h"
+
 // Sets default values for this component's properties
 UHeroComponent::UHeroComponent()
 {
@@ -13,22 +16,24 @@ UHeroComponent::UHeroComponent()
 	// ...
 }
 
-
-// Called when the game starts
-void UHeroComponent::BeginPlay()
+void UHeroComponent::Input_LeftAttack(const FInputActionValue& Value)
 {
-	Super::BeginPlay();
-
-	// ...
-	
+	if (OwningCharacter) {
+		//TODO: OwningCharacter->GetEquipmentComponent()->TriggerLeftAttack();
+	}
 }
 
-
-// Called every frame
-void UHeroComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
+void UHeroComponent::Input_RightAttack(const FInputActionValue& Value)
 {
-	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+	if (OwningCharacter) {
+		//TODO: OwningCharacter->GetEquipmentComponent()->TriggerRightAttack();
+	}
+}
 
-	// ...
+void UHeroComponent::BeginPlay()
+{
+	//Grab A Reference to our owning Character if it is A WyrmCharacter
+	OwningCharacter = Cast<AWyrmCharacter>(GetOwner());
+
 }
 

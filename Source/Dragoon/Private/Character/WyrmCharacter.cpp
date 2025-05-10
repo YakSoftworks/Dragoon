@@ -3,11 +3,19 @@
 
 #include "Character/WyrmCharacter.h"
 
+#include "Abilities/WyrmAbilitySystemComponent.h"
+#include "Equipment/WyrmEquipmentComponent.h"
+
 // Sets default values
 AWyrmCharacter::AWyrmCharacter()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
+	//Init Components
+	
+	AbilitySystemComponent = CreateDefaultSubobject<UWyrmAbilitySystemComponent>(TEXT("AbilitySystem"));
+	EquipmentComponent = CreateDefaultSubobject<UWyrmEquipmentComponent>(TEXT("EquipmentComponent"));
 
 }
 
